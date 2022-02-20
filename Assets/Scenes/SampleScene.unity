@@ -123,6 +123,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &266792693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3714675268326102139, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+  m_PrefabInstance: {fileID: 3714675267678550282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &266792698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266792693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810c0a7666f5fa441b00bb04508706a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera_movement_horizontal: 100
+  camera_movement_vertical: 20
+  playerbody: {fileID: 301342179}
+--- !u!4 &301342179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3714675268177777374, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+  m_PrefabInstance: {fileID: 3714675267678550282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +530,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714675268177777374, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268326102142, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268326102142, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268326102142, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268326102142, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268326102142, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714675268484990518, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
