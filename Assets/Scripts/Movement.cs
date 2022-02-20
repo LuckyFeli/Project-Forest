@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
         
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
 
-        if (Keyboard.current.leftShiftKey.isPressed || Gamepad.current.leftStickButton.isPressed)
+        if (controls.Gameplay.sprinting.IsPressed())
         {
             move = new Vector3(1 * movement.x, 0, 1 * movement.y) * Time.deltaTime + new Vector3(0.5f * movement.x, 0, 0.5f * movement.y)*Time.deltaTime;
         }
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
         { move = new Vector3(1 * movement.x, 0, 1 * movement.y) * Time.deltaTime; }
 
         transform.Translate(move);
-        if (isGrounded && (Keyboard.current.spaceKey.isPressed || Gamepad.current.aButton.isPressed))
+        if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
             isGrounded = false;
             rb.AddForce(jump*JumpForce, ForceMode.Impulse);
