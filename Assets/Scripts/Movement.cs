@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private float nickWinkel = 0f;
     private bool grounded = true;
     private Rigidbody rb;
-    public float JumpForce = 2.0f;
+    public float JumpForce = 1.0f;
     private Vector3 jump;
     // Start is called before the first frame update
     private void Start()
@@ -24,13 +24,17 @@ public class Movement : MonoBehaviour
         Kopf = GameObject.Find("kopf");
         controls.Enable();
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0, 2, 0);
+        jump = new Vector3(0, 1, 0);
     }
-    
-    private void OnCollionStay(Collision collisionInfo)
+
+    private void OnCollisionStay(Collision collision)
     {
         grounded = true;
     }
+   
+        
+       
+    
     // Update is called once per frame
     private void Update()
     {
@@ -43,14 +47,15 @@ public class Movement : MonoBehaviour
         Figur.transform.localPosition += transform.TransformDirection(Vector3.right) *movement.x * Time.deltaTime;
         if (grounded && Keyboard.current.spaceKey.isPressed)
         {
-            rb.AddForce(jump*JumpForce, ForceMode.Impulse);
             grounded = false;
+            rb.AddForce(jump*JumpForce, ForceMode.Impulse);
+            
         }
         Figur.transform.Rotate(new Vector3(0,camera_movement.x,0) *camera_movement_horizontal* Time.deltaTime);
 
         nickWinkel += -camera_movement.y *camera_movement_vertical*Time.deltaTime;
         nickWinkel = Mathf.Clamp(nickWinkel, -25f, 30f);
         Kopf.transform.localRotation = Quaternion.AngleAxis(nickWinkel, Vector3.right);
-        
+       
     }
 }
