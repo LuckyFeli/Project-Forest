@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     private Vector2 movement;
     private Vector3 move;
    
-    private Rigidbody rb;
+    
     public float gravity = -9.81f;
     public float JumpForce = 1.0f;
     public float jumpHeight = 1.0f;
@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
         controls = new PlayerControls();
         
         controls.Enable();
-        rb = GetComponent<Rigidbody>();
+       
         jump = new Vector3(0, 1, 0);
         Cursor.lockState = CursorLockMode.Locked;
         groundCheck = GameObject.Find("GroundCheck").GetComponent<Transform>();
@@ -59,13 +59,23 @@ public class Movement : MonoBehaviour
         }
         else
         { move = transform.right * movement.x + transform.forward * movement.y; }
-
+        if (controls.Gameplay.crouching.IsPressed())
+        {
+            controller.height = Mathf.Clamp(controller.height / 2,1f,2f);
+            move = move / 2;
+        }
+        else
+        {
+            controller.height = 2f;
+            
+        }
         controller.Move(move * speed * Time.deltaTime);
         if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
+        
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
