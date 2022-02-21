@@ -12,6 +12,12 @@ public class CollisionEffects : MonoBehaviour
 
     }
 
+    private IEnumerator Destroy()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,6 +26,7 @@ public class CollisionEffects : MonoBehaviour
         //Destroy(gameObject);
         //Instantiate(swapper);
         this.GetComponent<VisualEffect>().enabled = true;
+        StartCoroutine(Destroy());
     }
 
 }
