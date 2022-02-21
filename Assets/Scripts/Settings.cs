@@ -14,10 +14,11 @@ public class Settings : MonoBehaviour
     private float currentVolume;
     private Resolution[] resolutions;
     private int[] rates;
+    private FullScreenMode[] modes;
     // Start is called before the first frame update
     void Start()
     {
-        
+        modes = new FullScreenMode[] {FullScreenMode.ExclusiveFullScreen,FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow };
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         rates = new int[5]{ 30, 60, 90, 120, 144 };
@@ -43,9 +44,9 @@ public class Settings : MonoBehaviour
         currentVolume = volume;
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SetScreenMode(int ScreenMode)
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.fullScreenMode = modes[ScreenMode];
     }
 
     
@@ -63,5 +64,7 @@ public class Settings : MonoBehaviour
         int refreshRate = rates[refreshIndex];
         Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreen, refreshRate) ;
     }
+
+    
 }
    
