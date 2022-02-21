@@ -6,6 +6,32 @@ using UnityEngine.InputSystem;
 public class inventar : MonoBehaviour
 {
     public GameObject[] toggles;
+    private bool ability1 = false;
+    private bool ability2 = false;
+    private bool ability3 = false;
+    private bool ability4 = false;
+    private bool ability5 = false;
+
+    public void newAbility1()
+    {
+        ability1 = true;
+    }
+    public void newAbility2()
+    {
+        ability2 = true;
+    }
+    public void newAbility3()
+    {
+        ability3 = true;
+    }
+    public void newAbility4()
+    {
+        ability4 = true;
+    }
+    public void newAbility5()
+    {
+        ability5 = true;
+    }
     private void resetInventory()
     {
         for (int i = 0; i < 5; i++)
@@ -18,28 +44,43 @@ public class inventar : MonoBehaviour
         var itemNR = context.control.name.ToString().TrimStart(); ;
         if(itemNR == "1")
         {
-            resetInventory();
-            toggles[0].gameObject.SetActive(true);
+            if (ability1 == true)
+            {
+                resetInventory();
+                toggles[0].gameObject.SetActive(true);
+            }
         }
         else if(itemNR == "2")
         {
-            resetInventory();
-            toggles[1].gameObject.SetActive(true);
+            if (ability2 == true)
+            {
+                resetInventory();
+                toggles[1].gameObject.SetActive(true);
+            }
         }
         else if(itemNR == "3")
         {
-            resetInventory();
-            toggles[2].gameObject.SetActive(true);
+            if (ability3 == true)
+            {
+                resetInventory();
+                toggles[2].gameObject.SetActive(true);
+            }
         }
         else if(itemNR == "4")
         {
-            resetInventory();
-            toggles[3].gameObject.SetActive(true);
+            if (ability4 == true)
+            {
+                resetInventory();
+                toggles[3].gameObject.SetActive(true);
+            }
         }
         else
         {
-            resetInventory();
-            toggles[4].gameObject.SetActive(true);
+            if (ability5 == true)
+            {
+                resetInventory();
+                toggles[4].gameObject.SetActive(true);
+            }
         }
     }
 
