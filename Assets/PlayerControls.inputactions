@@ -31,12 +31,29 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                    "initialStateCheck": false
                 },
                 {
                     "name": "crouching",
                     "type": "Button",
                     "id": "0bb9aec8-6d08-4036-92b0-38f32d4181a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "jumping",
+                    "type": "Button",
+                    "id": "e4a88ce4-34fb-47af-afa5-5f7e463691ac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "sprinting",
+                    "type": "Button",
+                    "id": "a0a89552-8ac7-492d-bb5a-9bd1d596471a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -195,6 +212,50 @@
                     "processors": "",
                     "groups": "test",
                     "action": "crouching",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e83abd6c-d0c3-41b3-989b-1335923eef9f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "067ddb74-77e4-4df9-b60d-56829ac3a23d",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0acbdccd-11ed-4aa8-91ec-7e404373e93b",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sprinting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54e6df0f-0a6b-4437-8433-a62e95f1efa4",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sprinting",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

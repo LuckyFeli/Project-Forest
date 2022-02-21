@@ -29,43 +29,45 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0, 1, 0);
         Cursor.lockState = CursorLockMode.Locked;
+        groundCheck = GameObject.Find("GroundCheck").GetComponent<Transform>();
+        controller = GetComponent<CharacterController>();
     }
 
     private void OnCollisionStay(Collision collision)
     {
         isGrounded = true;
     }
-   
-        
-       
-    
-    
+
+
+
+
+
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-        
+
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
 
         if (controls.Gameplay.sprinting.IsPressed())
         {
-            move = transform.right*movement.x + transform.forward*movement.y  + transform.right*movement.x*sprint + transform.forward*movement.y*sprint;
+            move = transform.right * movement.x + transform.forward * movement.y + transform.right * movement.x * sprint + transform.forward * movement.y * sprint;
         }
         else
         { move = transform.right * movement.x + transform.forward * movement.y; }
 
-        controller.Move(move*speed *Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
         if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            
+
         }
-        velocity.y+=gravity*Time.deltaTime;
-        controller.Move(velocity*Time.deltaTime);
-        
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
     }
 }
