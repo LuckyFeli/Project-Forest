@@ -4278,7 +4278,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1262676898}
         m_TargetAssemblyTypeName: CpntrolSettings, Assembly-CSharp
-        m_MethodName: StartRebinding
+        m_MethodName: StartInteractiveRebind
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4913,7 +4913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1262676897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4948,6 +4948,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: -6141893670352571448, guid: b79ff07cff4cd5a4cb5a81da44c16cfa, type: 3}
   move_binding: []
+  inputAction:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5d862ad0-aae4-4bc3-8371-c356ec60ae90
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 631bc48c-bcd4-402f-9f41-46663351fce7
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1277897285
 GameObject:
   m_ObjectHideFlags: 0
@@ -6541,7 +6558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1731891459
 RectTransform:
   m_ObjectHideFlags: 0

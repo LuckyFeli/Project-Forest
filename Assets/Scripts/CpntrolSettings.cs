@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class CpntrolSettings : MonoBehaviour
 {
+    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
     public InputActionReference movement;
     public InputBinding[] move_binding;
+    public InputAction inputAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +15,14 @@ public class CpntrolSettings : MonoBehaviour
         
     }
 
-    
-    public void StartRebinding()
+   public void StartInteractiveRebind()
     {
-        
-       
-        for (int i = 0; i < move_binding.Length; i++)
-        {
-            Debug.Log(move_binding[i].name);
-        }
+        rebindingOperation = inputAction.PerformInteractiveRebinding().OnComplete(operation => RebindCompleted());
+        rebindingOperation.Start();
     }
+    void RebindCompleted()
+    {
+        rebindingOperation.Dispose();
+    }
+   
 }
