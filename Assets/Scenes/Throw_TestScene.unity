@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7b5bcf693e195438b476ce35e2b189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selection: {fileID: 0}
+  Selection: {fileID: 1743529679}
 --- !u!65 &776137687
 BoxCollider:
   m_ObjectHideFlags: 0
