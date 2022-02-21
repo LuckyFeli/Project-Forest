@@ -31,7 +31,8 @@ public class Throw : MonoBehaviour
             SCopyCol = SCopy.GetComponent<SphereCollider>();
             SCopyCol.enabled = true;
             SCopyRB = SCopy.GetComponent<Rigidbody>();
-            SCopyRB.AddForce(directionadjust * 250);
+            SCopyRB.mass = 0.5f;
+            SCopyRB.AddForce(Camera.main.transform.forward * 250);
             Debug.Log("Throw!");
         }
     }
