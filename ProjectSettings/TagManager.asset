@@ -8,6 +8,7 @@ TagManager:
   - UnsichtbarMacher
   - Materialize
   - Morph
+  - Mover
   layers:
   - Default
   - TransparentFX

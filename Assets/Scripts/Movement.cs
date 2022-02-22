@@ -43,17 +43,18 @@ public class Movement : MonoBehaviour
 
 
 
-    private void Update()
+    private void FixedUpdate()
     {
        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isFake = Physics.CheckSphere(morganaCheck.position,morganaDistance,fataMorgana);
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -1f;
         }
 
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
+        
 
         if (controls.Gameplay.sprinting.IsPressed())
         {
@@ -71,6 +72,7 @@ public class Movement : MonoBehaviour
             controller.height = 2f;
             
         }
+        
         controller.Move(move * speed * Time.deltaTime);
         if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
