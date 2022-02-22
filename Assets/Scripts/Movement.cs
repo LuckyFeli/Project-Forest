@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
+    public LayerMask fataMorgana;
+    public bool isFake = false;
+    public Transform morganaCheck;
+    public float morganaDistance = 0.7f;
     private void Start()
     {
         controls = new PlayerControls();
@@ -33,10 +37,7 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        isGrounded = true;
-    }
+   
 
 
 
@@ -44,8 +45,9 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+       
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+        isFake = Physics.CheckSphere(morganaCheck.position,morganaDistance,fataMorgana);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
