@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 857470130}
   - component: {fileID: 857470129}
   - component: {fileID: 857470133}
+  - component: {fileID: 857470134}
   m_Layer: 7
   m_Name: fata morgana
   m_TagString: Untagged
@@ -796,6 +797,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744e9ee3293f7746a08506ba988d5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &857470134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857470128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516b790384c6b5d429c6a2e5d417578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &876111423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_TagString
-      value: Materialize
+      value: Morph
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}

@@ -7,6 +7,7 @@ TagManager:
   - SichtbarMacher
   - UnsichtbarMacher
   - Materialize
+  - Morph
   layers:
   - Default
   - TransparentFX
