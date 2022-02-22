@@ -16,5 +16,10 @@ public class Unsichtbar : MonoBehaviour
             this.gameObject.layer = 6;
 
         }
+        else if (collision.gameObject.tag == "UnsichtbarMacher")
+        {
+            plattform.SetActive(false);
+            this.gameObject.layer = 0;
+        }
     }
 }

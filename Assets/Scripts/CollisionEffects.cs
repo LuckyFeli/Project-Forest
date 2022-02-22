@@ -25,6 +25,7 @@ public class CollisionEffects : MonoBehaviour
         //Debug.Log("Gespawned in " + gameObject.transform.position);
         //Destroy(gameObject);
         //Instantiate(swapper);
+        
         this.GetComponent<VisualEffect>().enabled = true;
         StartCoroutine(Destroy());
     }
