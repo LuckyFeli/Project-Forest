@@ -5,7 +5,7 @@ using UnityEngine;
 public class Throw : MonoBehaviour
 {
     private inventar inventory;
-    public GameObject Selection;
+    public GameObject[] Selection;
     private GameObject SCopy;
     private Rigidbody SCopyRB;
     private Collider SCopyCol;
@@ -15,6 +15,7 @@ public class Throw : MonoBehaviour
     public void Start()
     {
         inventory = GameObject.Find("Cursors").GetComponent<inventar>();
+
     }
 
     public void ThrowObject(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -23,8 +24,8 @@ public class Throw : MonoBehaviour
         {
             if (context.performed && cooldown)
             {
-                Vector3 prePos = Selection.transform.position;
-                SCopy = Instantiate(Selection);
+                Vector3 prePos = Selection[inventory.changeAbility].transform.position;
+                SCopy = Instantiate(Selection[inventory.changeAbility]);
                 SCopy.transform.position = prePos;
                 SCopy.AddComponent<Rigidbody>();
                 SCopyCol = SCopy.GetComponent<Collider>();

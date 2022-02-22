@@ -2145,6 +2145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5806f1a0885a62b4495650aa2b2a13f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwableObjects:
+  - {fileID: 1852719818}
+  - {fileID: 1481114899}
   toggles:
   - {fileID: 1755775229}
   - {fileID: 1407931225}
@@ -2152,6 +2155,7 @@ MonoBehaviour:
   - {fileID: 1701963829}
   - {fileID: 42996390}
   toggleAbility: 0
+  changeAbility: 0
 --- !u!224 &1367218503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2251,6 +2255,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407931225}
   m_CullTransparentMesh: 1
+--- !u!1 &1481114899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6819508678502905262, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+  m_PrefabInstance: {fileID: 1722267477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517335378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2927,18 @@ PrefabInstance:
       propertyPath: m_SlopeLimit
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3405102685181754764, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: Selection.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405102685181754764, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: Selection.Array.data[0]
+      value: 
+      objectReference: {fileID: 1852719818}
+    - target: {fileID: 3405102685181754764, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: Selection.Array.data[1]
+      value: 
+      objectReference: {fileID: 1481114899}
     - target: {fileID: 3469070489637974572, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_UIInputModule
       value: 
@@ -2973,6 +2994,26 @@ PrefabInstance:
     - target: {fileID: 3714675268177777374, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819508678502905262, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_Name
+      value: Sack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819508678502905262, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819508678502905262, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_TagString
+      value: UnsichtbarMacher
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_Name
+      value: Sack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_TagString
@@ -3206,6 +3247,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755775229}
   m_CullTransparentMesh: 1
+--- !u!1 &1852719818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+  m_PrefabInstance: {fileID: 1722267477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1891838318
 GameObject:
   m_ObjectHideFlags: 0
