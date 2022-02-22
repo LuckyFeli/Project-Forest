@@ -5,6 +5,7 @@ using UnityEngine;
 public class changeMesh : MonoBehaviour
 {
     public Mesh mesh;
+    
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,6 +13,7 @@ public class changeMesh : MonoBehaviour
         {
             gameObject.GetComponent<MeshFilter>().mesh = mesh;
             gameObject.GetComponent<MeshCollider>().sharedMesh = mesh;
+            
         }
     }
 }
