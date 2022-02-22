@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""4087acb0-0cbd-41ec-98b2-ad7f23ef9827"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -153,6 +162,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""fc5eab2c-1f51-48e7-8c77-d236429cb2df"",
                     ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e07122f8-0365-4649-af69-0578230cc20a"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -280,6 +300,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""sprinting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""500a39f1-629a-48fb-9787-72a01e478df3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""486e724e-a304-4b2e-9993-42fe20c5a0d8"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,6 +358,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_crouching = m_Gameplay.FindAction("crouching", throwIfNotFound: true);
         m_Gameplay_jumping = m_Gameplay.FindAction("jumping", throwIfNotFound: true);
         m_Gameplay_sprinting = m_Gameplay.FindAction("sprinting", throwIfNotFound: true);
+        m_Gameplay_Throw = m_Gameplay.FindAction("Throw", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -381,6 +424,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_crouching;
     private readonly InputAction m_Gameplay_jumping;
     private readonly InputAction m_Gameplay_sprinting;
+    private readonly InputAction m_Gameplay_Throw;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -391,6 +435,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @crouching => m_Wrapper.m_Gameplay_crouching;
         public InputAction @jumping => m_Wrapper.m_Gameplay_jumping;
         public InputAction @sprinting => m_Wrapper.m_Gameplay_sprinting;
+        public InputAction @Throw => m_Wrapper.m_Gameplay_Throw;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -418,6 +463,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @sprinting.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprinting;
                 @sprinting.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprinting;
                 @sprinting.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprinting;
+                @Throw.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -440,6 +488,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @sprinting.started += instance.OnSprinting;
                 @sprinting.performed += instance.OnSprinting;
                 @sprinting.canceled += instance.OnSprinting;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
             }
         }
     }
@@ -461,5 +512,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnCrouching(InputAction.CallbackContext context);
         void OnJumping(InputAction.CallbackContext context);
         void OnSprinting(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
     }
 }

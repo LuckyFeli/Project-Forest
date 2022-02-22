@@ -16,12 +16,10 @@ public class Throw : MonoBehaviour
         
     }
 
-
-
-    // Update is called once per frame
-    public void Update()
+    public void ThrowObject(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (Input.GetMouseButtonDown(0))
+
+        if (context.performed)
         {
             Vector3 prePos = Selection.transform.position;
             SCopy = Instantiate(Selection);
@@ -35,6 +33,13 @@ public class Throw : MonoBehaviour
             SCopyRB.AddForce(Camera.main.transform.forward * 250);
             Debug.Log("Throw!" + prePos);
         }
+        
+    }
+
+    // Update is called once per frame
+    public void Update()
+    {
+        
     }
 
 
