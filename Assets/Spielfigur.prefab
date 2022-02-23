@@ -293,7 +293,19 @@ MonoBehaviour:
     m_ActionId: 33fbcea2-9255-4561-bda4-6f9317b7aed6
     m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 298919267185143287}
+        m_TargetAssemblyTypeName: FirstPerson, Assembly-CSharp
+        m_MethodName: cameraControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: be0e054e-e641-4bb8-b4d5-1033f7339d0b
     m_ActionName: Gameplay/Camera[/Mouse/delta,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
@@ -328,6 +340,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4087acb0-0cbd-41ec-98b2-ad7f23ef9827
     m_ActionName: Gameplay/Throw[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 22d12c83-1692-4e69-8f1d-a1f0b88fdb8d
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0394ab1-6ff3-45d9-a4a9-df1a6780e99f
+    m_ActionName: Menu/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
