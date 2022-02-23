@@ -9,19 +9,29 @@ public class pauseMenu : MonoBehaviour
     public void Awake()
     {
         menu = new PlayerControls();
+       
+    }
+    private void OnEnable()
+    {
         menu.Menu.Enable();
+    }
+    private void OnDisable()
+    {
+        menu.Menu.Disable();
     }
     public void Resume(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            SceneManager.UnloadSceneAsync("Settings");
+            pauseManager.instance.canvas.SetActive(false);
+            menu.Menu.Disable();
             pauseManager.instance.resumeGame();
         }
     }
     public void ResumeClick()
     {
-        SceneManager.UnloadSceneAsync("Settings");
+        pauseManager.instance.canvas.SetActive(false );
+        menu.Menu.Disable();
         pauseManager.instance.resumeGame();
     }
     public void quitwithoutSave()
@@ -31,18 +41,13 @@ public class pauseMenu : MonoBehaviour
     public void SavePlayer()
     {
         Debug.Log("saving");
-        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>());
+        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(),pauseManager.instance.settings);
+        Debug.Log(pauseManager.instance.movement.gameObject.transform.position);
     }
     public void LoadPlayer()
     {
-        Debug.Log("loading");
-        PlayerData data = SaveSystem.loadPlayer();
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        pauseManager.instance.loadGame(position);
-        
-        
+      
+
+
     }
 }

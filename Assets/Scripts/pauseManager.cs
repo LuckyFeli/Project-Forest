@@ -7,6 +7,8 @@ public class pauseManager : MonoBehaviour
     public static pauseManager instance;
     public static bool pause;
     public Movement movement;
+    public GameObject canvas;
+    public Settings settings;
     private void Awake()
     {
         if (instance != null)
@@ -19,10 +21,18 @@ public class pauseManager : MonoBehaviour
     }
     public void resumeGame()
     {
+       
         movement.resume();
     }
-    public void loadGame(Vector3 position)
+    public Vector3 loadGame()
     {
-        movement.gameObject.transform.position = position;
+        Debug.Log("loading");
+        PlayerData data = SaveSystem.loadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        
+        return position;
     }
 }

@@ -28,9 +28,9 @@ public class Movement : MonoBehaviour
     public float morganaDistance = 0.7f;
     private void Start()
     {
-        controls = new PlayerControls();
         
-        controls.Gameplay.Enable();
+        
+        
        
         jump = new Vector3(0, 1, 0);
         Cursor.lockState = CursorLockMode.Locked;
@@ -38,11 +38,19 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-   
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        this.transform.position = pauseManager.instance.loadGame();
+
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
 
 
-
-   
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -85,7 +93,7 @@ public class Movement : MonoBehaviour
 
     public void resume()
     {
-        controls.Gameplay.Enable();
+        controls.Enable();
         gameObject.GetComponent<PlayerInput>().enabled = true;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -95,15 +103,20 @@ public class Movement : MonoBehaviour
     {
         if (context.performed)
         {
-            
-            SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+           
+            pauseManager.instance.canvas.SetActive(true);
+
             controls.Gameplay.Disable();
-            gameObject.GetComponent<PlayerInput>().enabled = false;
+            
+            this.GetComponent<PlayerInput>().enabled = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             
         }
     }
-    
+    public void gameLoaded(Vector3 savePosition)
+    {
+        controller.transform.position = savePosition;
+    }
 }
 
