@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     private PlayerControls controls;
@@ -29,7 +30,7 @@ public class Movement : MonoBehaviour
     {
         controls = new PlayerControls();
         
-        controls.Enable();
+        controls.Gameplay.Enable();
        
         jump = new Vector3(0, 1, 0);
         Cursor.lockState = CursorLockMode.Locked;
@@ -81,10 +82,27 @@ public class Movement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    public void pauseControls()
+
+    public void resume()
     {
-        controls.Disable();
-        gameObject.GetComponent<PlayerInput>().enabled = false;
+        controls.Gameplay.Enable();
+        gameObject.GetComponent<PlayerInput>().enabled = true;
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void pauseControls(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            
+            SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+            controls.Gameplay.Disable();
+            gameObject.GetComponent<PlayerInput>().enabled = false;
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            
+        }
     }
     
 }

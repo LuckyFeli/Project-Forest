@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 56600189}
   - component: {fileID: 56600188}
   - component: {fileID: 56600193}
+  - component: {fileID: 56600194}
   m_Layer: 6
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -250,6 +251,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plattform: {fileID: 56600187}
+--- !u!114 &56600194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56600187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6c3e164e562ff4bb4acb024d3be890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 689771861}
 --- !u!1 &158574527
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +292,7 @@ BoxCollider:
   m_GameObject: {fileID: 158574527}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -384,7 +398,7 @@ BoxCollider:
   m_GameObject: {fileID: 247642367}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -848,7 +862,7 @@ BoxCollider:
   m_GameObject: {fileID: 876111423}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -954,7 +968,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916612536}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1170,6 +1184,14 @@ PrefabInstance:
       propertyPath: m_MinMoveDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 298919267185143287, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: camera_movement_vertical
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 298919267185143287, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: camera_movement_horizontal
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3274795481446546661, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 9
@@ -1236,7 +1258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3274795481446546661, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3274795481446546661, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1452,7 +1474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7194760641176375547, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_TagString
-      value: Mover
+      value: SichtbarMacher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
@@ -1554,7 +1576,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985619726}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1602,7 +1624,7 @@ BoxCollider:
   m_GameObject: {fileID: 2117324287}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

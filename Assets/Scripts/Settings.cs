@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Settings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        modes = new FullScreenMode[] {FullScreenMode.ExclusiveFullScreen,FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow };
+        modes = new FullScreenMode[] {FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow, FullScreenMode.ExclusiveFullScreen };
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         rates = new int[5]{ 30, 60, 90, 120, 144 };
@@ -65,7 +66,7 @@ public class Settings : MonoBehaviour
         int refreshRate = rates[refreshIndex];
         Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreen, refreshRate) ;
     }
-
+   
     
 }
    
