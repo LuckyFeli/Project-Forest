@@ -38,7 +38,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Camera"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""be0e054e-e641-4bb8-b4d5-1033f7339d0b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -89,6 +89,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""22d12c83-1692-4e69-8f1d-a1f0b88fdb8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -96,7 +105,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": ""2D Vector"",
                     ""id"": ""0071722c-ccd8-49a9-9c3a-a9ce78ab109e"",
                     ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
@@ -322,6 +331,56 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09e0569d-1fb5-4308-b082-859505549297"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d11902c0-aee0-4785-9f4b-2f0e5f516bca"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""3367e022-59c6-42f3-8666-63da7c9f0e5b"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0394ab1-6ff3-45d9-a4a9-df1a6780e99f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1f961415-373c-45dc-939d-2b91c1f6485c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -359,6 +418,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_jumping = m_Gameplay.FindAction("jumping", throwIfNotFound: true);
         m_Gameplay_sprinting = m_Gameplay.FindAction("sprinting", throwIfNotFound: true);
         m_Gameplay_Throw = m_Gameplay.FindAction("Throw", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,6 +488,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_jumping;
     private readonly InputAction m_Gameplay_sprinting;
     private readonly InputAction m_Gameplay_Throw;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -436,6 +500,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @jumping => m_Wrapper.m_Gameplay_jumping;
         public InputAction @sprinting => m_Wrapper.m_Gameplay_sprinting;
         public InputAction @Throw => m_Wrapper.m_Gameplay_Throw;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -466,6 +531,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Throw.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -491,10 +559,46 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Newaction;
+    public struct MenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Menu_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_testSchemeIndex = -1;
     public InputControlScheme testScheme
     {
@@ -513,5 +617,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJumping(InputAction.CallbackContext context);
         void OnSprinting(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

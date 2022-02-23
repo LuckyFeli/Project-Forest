@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class movingPlattform : MonoBehaviour
 {
     public Vector3 newPosition = new Vector3(50, 0, 50);
@@ -13,7 +14,7 @@ public class movingPlattform : MonoBehaviour
         Debug.Log("test");
         if (collision.gameObject.tag == "Mover")
         {
-            iTween.MoveTo(plattform,iTween.Hash( "time",time,"position",newPosition,"easetype","linear"));
+           // iTween.MoveTo(plattform,iTween.Hash( "time",time,"position",newPosition,"easetype","linear"));
             //characterController.enabled = false;
             StartCoroutine(noControl());
         }
@@ -33,7 +34,7 @@ public class movingPlattform : MonoBehaviour
            
         }
     }
-    
+   
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.tag == "Player")
