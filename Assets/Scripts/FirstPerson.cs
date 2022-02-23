@@ -19,13 +19,17 @@ public class FirstPerson : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void cameraControl()
     {
         camera_movement = controls.Gameplay.Camera.ReadValue<Vector2>();
         nickWinkel += -camera_movement.y * camera_movement_vertical * Time.deltaTime;
         nickWinkel = Mathf.Clamp(nickWinkel, -90f, 90f);
         transform.localRotation = Quaternion.AngleAxis(nickWinkel, Vector3.right);
+        playerbody.Rotate(Vector3.up * camera_movement.x * Time.deltaTime * camera_movement_horizontal);
 
-        playerbody.Rotate(Vector3.up * camera_movement.x*Time.deltaTime*camera_movement_horizontal);
+    }
+    private void Update()
+    {
+        
     }
 }

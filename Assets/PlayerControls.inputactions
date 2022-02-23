@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Camera",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "be0e054e-e641-4bb8-b4d5-1033f7339d0b",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "22d12c83-1692-4e69-8f1d-a1f0b88fdb8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -74,7 +83,7 @@
                     "name": "2D Vector",
                     "id": "0071722c-ccd8-49a9-9c3a-a9ce78ab109e",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
@@ -298,6 +307,56 @@
                     "processors": "",
                     "groups": "",
                     "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09e0569d-1fb5-4308-b082-859505549297",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d11902c0-aee0-4785-9f4b-2f0e5f516bca",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "3367e022-59c6-42f3-8666-63da7c9f0e5b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "d0394ab1-6ff3-45d9-a4a9-df1a6780e99f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1f961415-373c-45dc-939d-2b91c1f6485c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

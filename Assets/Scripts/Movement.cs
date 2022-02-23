@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
+    public LayerMask fataMorgana;
+    public bool isFake = false;
+    public Transform morganaCheck;
+    public float morganaDistance = 0.7f;
     private void Start()
     {
         controls = new PlayerControls();
@@ -33,25 +37,22 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        isGrounded = true;
-    }
+   
 
 
 
-
-
+   
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+        isFake = Physics.CheckSphere(morganaCheck.position, morganaDistance, fataMorgana);
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -1f;
         }
 
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
+
 
         if (controls.Gameplay.sprinting.IsPressed())
         {
@@ -61,23 +62,30 @@ public class Movement : MonoBehaviour
         { move = transform.right * movement.x + transform.forward * movement.y; }
         if (controls.Gameplay.crouching.IsPressed())
         {
-            controller.height = Mathf.Clamp(controller.height / 2,1f,2f);
+            controller.height = Mathf.Clamp(controller.height / 2, 1f, 2f);
             move = move / 2;
         }
         else
         {
             controller.height = 2f;
-            
+
         }
+
         controller.Move(move * speed * Time.deltaTime);
         if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
-        
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
     }
+    public void pauseControls()
+    {
+        controls.Disable();
+        gameObject.GetComponent<PlayerInput>().enabled = false;
+    }
+    
 }
+
