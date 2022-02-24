@@ -6,14 +6,14 @@ public class DialogUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private DialogObject testDialog;
+    [SerializeField] private DialogObject[] allDialog;
 
     private Typewritereffect typewritereffect;
-    void Start()
+    public void writeText(int i)
     {
         typewritereffect = GetComponent<Typewritereffect>();
         CloseDialog();
-        ShowDialogue(testDialog);
+        ShowDialogue(allDialog[i]);
     }
 
     public void ShowDialogue(DialogObject dialogObject)
