@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 8e7e8f5a82a3a134e91c54efd2274ea9
+<<<<<<< HEAD:Assets/TextMesh Pro/Documentation.meta
+guid: 34a78477fa960b048b866f5df2e34bd7
+=======
+guid: dfa63fbac119a87419ccc3790087e390
+>>>>>>> Terrain:Assets/Samples.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

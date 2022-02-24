@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: f54d1bd14bd3ca042bd867b519fee8cc
+<<<<<<< HEAD:Assets/TextMesh Pro.meta
+guid: 980632e24aec9fe4c99fb962c4f10c07
 folderAsset: yes
+=======
+guid: 4fde4d775bc6db94db43fcd483107b15
+>>>>>>> Terrain:Assets/Scenes/Terrain.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
