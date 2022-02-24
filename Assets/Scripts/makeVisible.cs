@@ -7,7 +7,7 @@ public class makeVisible : MonoBehaviour
     public GameObject plattform;
 
 
-
+    //If the right object hits the trigger it will activate the gameObject and sets it
     private void OnTriggerEnter(Collider collision)
     {
         
