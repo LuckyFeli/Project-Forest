@@ -3,13 +3,13 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem 
 {
-    public static void SavePlayer(Movement player,Settings settings)
+    public static void SavePlayer(Movement player,Settings settings,inventar inventoryInfo)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.kek";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(player,settings);
+        PlayerData data = new PlayerData(player,settings,inventoryInfo);
 
         formatter.Serialize(stream, data);
         stream.Close();

@@ -41,7 +41,7 @@ public class pauseMenu : MonoBehaviour
     public void SavePlayer()
     {
         Debug.Log("saving");
-        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(),pauseManager.instance.settings);
+        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(),pauseManager.instance.settings,pauseManager.instance.inventar);
         Debug.Log(pauseManager.instance.movement.gameObject.transform.position);
     }
     public void LoadPlayer()

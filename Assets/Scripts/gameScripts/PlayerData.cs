@@ -10,8 +10,9 @@ public class PlayerData
     public int screenMode;
     public int qualityIndex;
     public int resolutionIndex;
+    public bool[] inventory;
     
-    public PlayerData(Movement player,Settings settings)
+    public PlayerData(Movement player,Settings settings,inventar inventoryInfo)
     {
         position = new float[3];
         position[0] = player.transform.position.x;
@@ -21,6 +22,9 @@ public class PlayerData
         screenMode = settings.GetScreenMode();
         qualityIndex = settings.GetQuality();
         resolutionIndex = settings.GetResolution();
+
+        inventory = new bool[5];
+        inventory = inventoryInfo.GetInventory();
         
     }
 

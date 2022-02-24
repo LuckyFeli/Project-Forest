@@ -18,6 +18,7 @@ public class inventar : MonoBehaviour
     {
         ability1 = true;
     }
+    
     public void newAbility2()
     {
         ability2 = true;
@@ -91,5 +92,16 @@ public class inventar : MonoBehaviour
         }
     }
 
-    
+    public bool[] GetInventory()
+    {
+        return new bool[5] { ability1, ability2,ability3,ability4,ability5};
+    }
+    public void SetInventor(bool[] inventory)
+    {
+        ability1 = inventory[0];
+        ability2 = inventory[1];
+        ability3 = inventory[2];
+        ability4 = inventory[3];
+        ability5 = inventory[4];
+    }
 }
