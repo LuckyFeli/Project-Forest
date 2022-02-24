@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class inventar : MonoBehaviour
 {
+    public GameObject[] throwableObjects;
     public GameObject[] toggles;
     private bool ability1 = false;
     private bool ability2 = false;
@@ -12,8 +13,10 @@ public class inventar : MonoBehaviour
     private bool ability4 = false;
     private bool ability5 = false;
 
-    public int toggleAbility;
+    public bool toggleAbility;
+    public int changeAbility;
 
+    
     public void newAbility1()
     {
         ability1 = true;
@@ -41,6 +44,13 @@ public class inventar : MonoBehaviour
             toggles[i].gameObject.SetActive(false);
         }
     }
+    private void resetThrowableObject()
+    {
+        for(int i = 0;i < throwableObjects.Length; i++)
+        {
+            throwableObjects[i].SetActive(false);
+        }
+    }
     public void changethrow(InputAction.CallbackContext context)
     {
         var itemNR = context.control.name.ToString().TrimStart(); ;
@@ -49,8 +59,13 @@ public class inventar : MonoBehaviour
             if (ability1 == true)
             {
                 resetInventory();
-                toggles[0].gameObject.SetActive(true);
-                toggleAbility = 1;
+                toggles[0].SetActive(true);
+
+                resetThrowableObject();
+                throwableObjects[0].SetActive(true);
+
+                toggleAbility = true;
+                changeAbility = 0;
             }
         }
         else if(itemNR == "2")
@@ -59,7 +74,12 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[1].gameObject.SetActive(true);
-                toggleAbility = 2;
+
+                resetThrowableObject();
+                throwableObjects[1].gameObject.SetActive(true);
+
+                toggleAbility = true;
+                changeAbility = 1;
             }
         }
         else if(itemNR == "3")
@@ -68,7 +88,8 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[2].gameObject.SetActive(true);
-                toggleAbility = 3;
+                toggleAbility = true;
+                changeAbility = 2;
             }
         }
         else if(itemNR == "4")
@@ -77,7 +98,8 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[3].gameObject.SetActive(true);
-                toggleAbility = 4;
+                toggleAbility = true;
+                changeAbility = 3;
             }
         }
         else
@@ -86,7 +108,8 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[4].gameObject.SetActive(true);
-                toggleAbility = 5;
+                toggleAbility = true;
+                changeAbility = 4;
             }
         }
     }
