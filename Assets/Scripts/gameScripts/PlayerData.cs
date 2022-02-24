@@ -11,6 +11,7 @@ public class PlayerData
     public int qualityIndex;
     public int resolutionIndex;
     public bool[] inventory;
+    public bool[] key_Objects;
     
     public PlayerData(Movement player,Settings settings,inventar inventoryInfo)
     {

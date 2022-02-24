@@ -29,6 +29,7 @@ public class pauseManager : MonoBehaviour
     }
     public Vector3 loadGame()
     {
+        //Spieler wird an die Position des Speicherns gestellt. 
         Debug.Log("loading");
         PlayerData data = SaveSystem.loadPlayer();
         Vector3 position;
@@ -36,6 +37,8 @@ public class pauseManager : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         Debug.Log(data.inventory);
+
+        //Im folgenden werden die wichtigen daten, welche für das inventar system gespeichert wurden wieder abgerufen und die aufgehobenen Objekte dementsprechend auch in der Welt Deaktiviert
         inventar.SetInventor(data.inventory);
         toggles[0].isOn = data.inventory[0];
         toggles[1].isOn = data.inventory[1];
@@ -47,6 +50,14 @@ public class pauseManager : MonoBehaviour
         gameState.Abilities[2].SetActive(!data.inventory[2]);
         gameState.Abilities[3].SetActive(!data.inventory[3]);
         gameState.Abilities[4].SetActive(!data.inventory[4]);
+
+        //Hier passiert das Selbe wie mit dem Inventar nur das es hier vor allem Schlüssel sind welche man benötigt um Level abzuschließen.
+        for (int i = 0; i < gameState.Key_Objects.Length; i++)
+        {
+            gameState.Key_Objects[i].SetActive(!data.key_Objects[i]);
+            //TODO Schalte gesammelte Schlüsselobjekte im HUD wieder ein.
+            
+        }
         return position;
     }
 }

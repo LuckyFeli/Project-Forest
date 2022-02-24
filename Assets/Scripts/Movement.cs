@@ -4,53 +4,56 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
-{
+{   //InputSystem
     private PlayerControls controls;
     public CharacterController controller;
-    public float speed = 10f;
-    public float sprint = 1f;
+    
     private Vector2 movement;
     private Vector3 move;
-   
-    
+
+    //Data for Physics 
+    public float speed = 10f;
+    public float sprint = 1f;
     public float gravity = -9.81f;
     public float JumpForce = 1.0f;
     public float jumpHeight = 1.0f;
-    private Vector3 jump;
     private Vector3 velocity;
+
+    //Important data for jump and gravity system
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
+
+    //Important data for "fake" Objects
     public LayerMask fataMorgana;
     public bool isFake = false;
     public Transform morganaCheck;
     public float morganaDistance = 0.7f;
+
     private void Start()
     {
         
-        
-        
-       
-        jump = new Vector3(0, 1, 0);
         Cursor.lockState = CursorLockMode.Locked;
         groundCheck = GameObject.Find("GroundCheck").GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
     }
 
-
+    //sets the control and loads the important data in the save file
     private void Awake()
     {
         controls = new PlayerControls();
         this.transform.position = pauseManager.instance.loadGame();
 
     }
+
+    //Activates the control scheme
     private void OnEnable()
     {
         controls.Enable();
     }
 
-
+    //Character Movement is controlled here
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -91,6 +94,7 @@ public class Movement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    //When exiting the pause menu, give players the control back 
     public void resume()
     {
         controls.Enable();
@@ -99,6 +103,7 @@ public class Movement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //Deactivates the playerControls as soon as the game gets paused
     public void pauseControls(InputAction.CallbackContext context)
     {
         if (context.performed)

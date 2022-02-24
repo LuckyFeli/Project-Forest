@@ -5,4 +5,5 @@ using UnityEngine;
 public class gameState : MonoBehaviour
 {
     public GameObject[] Abilities;
+    public GameObject[] Key_Objects;
 }
