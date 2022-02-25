@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Materialize : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    
+    //If the object is hit by the right GameObject the layer is set to be a real plattform instead of a fake one
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("test");
+        
         if (collision.gameObject.tag == "Materialize")
         {
             gameObject.layer = 6;

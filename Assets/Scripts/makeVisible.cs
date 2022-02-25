@@ -7,13 +7,14 @@ public class makeVisible : MonoBehaviour
     public GameObject plattform;
 
 
-
-    private void OnCollisionEnter(Collision collision)
+    //If the right object hits the trigger it will activate the gameObject and sets it
+    private void OnTriggerEnter(Collider collision)
     {
+        
         if (collision.gameObject.tag == "SichtbarMacher")
         {
             plattform.SetActive(true);
-            this.gameObject.layer = 6;
+            plattform.layer = 6;
 
         }
         
