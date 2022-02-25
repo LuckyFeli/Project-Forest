@@ -10,7 +10,7 @@ public class Settings : MonoBehaviour
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
     public Dropdown qualityDropdown;
-    
+    public Dropdown ModeDropdown;
     public Slider volumeSlider;
     private float currentVolume;
     private Resolution[] resolutions;
@@ -34,9 +34,17 @@ public class Settings : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-
+        int currentScreenMode = 0;
+        for(int i = 0; i< modes.Length; i++)
+        {
+            if (modes[i] == Screen.fullScreenMode)
+            {
+                currentScreenMode = i;
+            }
+        }
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
+        ModeDropdown.value = currentScreenMode;
         resolutionDropdown.RefreshShownValue();
     }
     public void SetVolume(float volume)
