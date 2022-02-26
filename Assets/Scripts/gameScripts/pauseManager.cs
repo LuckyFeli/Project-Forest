@@ -7,10 +7,11 @@ public class pauseManager : MonoBehaviour
 {
     public static pauseManager instance;
     public Vector3 position;
-    
+    public Vector3 rotation;
     public static bool pause;
     public Movement movement;
     public GameObject canvas;
+    public FirstPerson camera;
     public Settings settings;
     public inventar inventar;
     public Toggle[] toggles;
@@ -34,7 +35,7 @@ public class pauseManager : MonoBehaviour
             instance.settings.volumeSlider = settings.volumeSlider;
             instance.gameState.Abilities[0] = gameState.Abilities[0];
             instance.gameState.Abilities[1] = gameState.Abilities[1];
-            
+            instance.camera = camera;
             instance.settings.enabled = true;
             instance.loadSystem = loadSystem;
             for(int i = 0; i < toggles.Length; i++)
@@ -56,7 +57,7 @@ public class pauseManager : MonoBehaviour
     {
         SceneManager.LoadScene("Terrain");
         instance.position = new Vector3(30, 10, 65);
-        
+        instance.rotation = new Vector3(0, 0, 0);
         for (int i = 0; i < toggleState.Length; i++)
         {
             toggleState[i] = false;
@@ -86,7 +87,12 @@ public class pauseManager : MonoBehaviour
             position.z = data.position[2];
             
         }
-        
+        if(data.rotation != null)
+        {
+            rotation.x = data.rotation[0];
+            rotation.y = data.rotation[1];
+            rotation.z = data.rotation[2];
+        }
 
         //Im folgenden werden die wichtigen daten, welche für das inventar system gespeichert wurden wieder abgerufen und die aufgehobenen Objekte dementsprechend auch in der Welt Deaktiviert
         if (data.inventory != null && data.inventory.Length>4)

@@ -40,13 +40,13 @@ public class pauseMenu : MonoBehaviour
     }
     public void quitwithSave()
     {
-        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(), pauseManager.instance.settings, pauseManager.instance.inventar);
+        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(), pauseManager.instance.settings, pauseManager.instance.inventar,pauseManager.instance.camera);
         Application.Quit();
     }
     public void SavePlayer()
     {
         Debug.Log("saving");
-        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(),pauseManager.instance.settings,pauseManager.instance.inventar);
+        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(),pauseManager.instance.settings,pauseManager.instance.inventar,pauseManager.instance.camera);
         Debug.Log(pauseManager.instance.movement.gameObject.transform.position);
     }
     public void LoadPlayer()

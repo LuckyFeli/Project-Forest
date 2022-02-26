@@ -28,7 +28,12 @@ public class FirstPerson : MonoBehaviour
         playerbody.Rotate(Vector3.up * camera_movement.x * Time.deltaTime * camera_movement_horizontal);
 
     }
-    
+    public void LoadState()
+    {
+        Debug.Log(pauseManager.instance.rotation);
+        playerbody.eulerAngles = pauseManager.instance.rotation;
+
+    }
     private void Update()
     {
         

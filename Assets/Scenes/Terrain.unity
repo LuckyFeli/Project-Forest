@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1825191, g: 0.2282309, b: 0.30722407, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 39c95e0f4edc890479d4eeafabb9b653, type: 2}
   m_LightingSettings: {fileID: 797650352}
 --- !u!196 &4
 NavMeshSettings:
@@ -4749,7 +4749,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4806,13 +4806,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583295828}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.095186636, y: 0.3451443, z: -0.93304616, w: 0.035210613}
+  m_LocalPosition: {x: 0, y: 344.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 139.4, y: 168.35, z: 0}
 --- !u!1 &591179416
 GameObject:
   m_ObjectHideFlags: 0
@@ -11601,6 +11601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 3714675268815104407}
   inventory: {fileID: 1874312401}
+  camera: {fileID: 298919265742509759}
   toggles:
   - {fileID: 1826770503}
   - {fileID: 919638149}
@@ -19402,8 +19403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
   movement: {fileID: 3714675268815104407}
   canvas: {fileID: 3043652740752915499}
+  camera: {fileID: 298919265742509759}
   settings: {fileID: 4830199192951890475}
   inventar: {fileID: 1874312401}
   toggles:
