@@ -28,6 +28,7 @@ public class FirstPerson : MonoBehaviour
         playerbody.Rotate(Vector3.up * camera_movement.x * Time.deltaTime * camera_movement_horizontal);
 
     }
+    
     private void Update()
     {
         

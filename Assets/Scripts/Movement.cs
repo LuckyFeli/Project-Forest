@@ -43,10 +43,14 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        this.transform.position = pauseManager.instance.loadGame();
+        
+        
 
     }
-
+    public void LoadState()
+    {
+        transform.position = pauseManager.instance.position;
+    }
     //Activates the control scheme
     private void OnEnable()
     {
@@ -108,7 +112,7 @@ public class Movement : MonoBehaviour
     {
         if (context.performed)
         {
-           
+            Debug.Log("Pause");
             pauseManager.instance.canvas.SetActive(true);
 
             controls.Gameplay.Disable();

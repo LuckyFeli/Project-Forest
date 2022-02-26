@@ -5,12 +5,13 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Dropdown resolutionDropdown;
-    public Dropdown qualityDropdown;
+    public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown qualityDropdown;
     
     public Slider volumeSlider;
     private float currentVolume;
@@ -24,7 +25,8 @@ public class Settings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseManager.instance.loadGame();
+        Debug.Log("Test");
+        
         modes = new FullScreenMode[] {FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow, FullScreenMode.ExclusiveFullScreen };
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();

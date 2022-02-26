@@ -26,7 +26,8 @@ public class PlayerData
 
         inventory = new bool[5];
         inventory = inventoryInfo.GetInventory();
-        
+        key_Objects = new bool[5];
+        key_Objects = gameState.getKeyObject();
     }
 
     

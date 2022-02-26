@@ -38,6 +38,11 @@ public class pauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void quitwithSave()
+    {
+        SaveSystem.SavePlayer(pauseManager.instance.movement.gameObject.GetComponent<Movement>(), pauseManager.instance.settings, pauseManager.instance.inventar);
+        Application.Quit();
+    }
     public void SavePlayer()
     {
         Debug.Log("saving");
