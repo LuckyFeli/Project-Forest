@@ -43624,6 +43624,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ce9c0b440bc414995ee2e6794cd394, type: 3}
+--- !u!1 &1611582351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1611582353}
+  - component: {fileID: 1611582352}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1611582352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611582351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5c2393566ba94d9df99785baaa317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerWalk
+    clip: {fileID: 8300000, guid: d848f6efc7d8df1469775a21c5a7846a, type: 3}
+    volume: 0.431
+    pitch: 1.07
+    loop: 1
+    source: {fileID: 0}
+  - name: PlayerRun
+    clip: {fileID: 8300000, guid: afc81148cf88b3c48bfbd59d42bdfa91, type: 3}
+    volume: 0.181
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: c1f0daa398f6e314fa1001b4275664d5, type: 3}
+    volume: 0.181
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FlowerCollected
+    clip: {fileID: 8300000, guid: f1721d43c9ad43847abd2257ffcd4f02, type: 3}
+    volume: 0.181
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: VinesDisappear
+    clip: {fileID: 8300000, guid: cf079394cd8721041b0760f1dc92b1a2, type: 3}
+    volume: 0.181
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerCrouch
+    clip: {fileID: 8300000, guid: f4503cdaac346c849ba0cdfb2f039f77, type: 3}
+    volume: 0.181
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &1611582353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611582351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.97237, y: -73.38362, z: 236.09169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1612416726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47951,7 +48031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714675268177777374, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.04
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 3714675268177777374, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47989,7 +48069,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7937642118082983299, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937642118082983299, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
+      propertyPath: m_Volume
+      value: 0.627
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7937642118082983299, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f1683d06f2fc9c4386fe268720ce0cd, type: 3}
 --- !u!1001 &1779406869
 PrefabInstance:

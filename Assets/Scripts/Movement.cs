@@ -65,17 +65,26 @@ public class Movement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -1f;
+            
         }
 
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
+        if (movement != new Vector2(0, 0))
+            FindObjectOfType<AudioManager>().Play("PlayerWalk");
+
 
 
         if (controls.Gameplay.sprinting.IsPressed())
         {
             move = transform.right * movement.x + transform.forward * movement.y + transform.right * movement.x * sprint + transform.forward * movement.y * sprint;
+            
         }
         else
-        { move = transform.right * movement.x + transform.forward * movement.y; }
+        { 
+            move = transform.right * movement.x + transform.forward * movement.y;
+            
+
+        }
         if (controls.Gameplay.crouching.IsPressed())
         {
             controller.height = Mathf.Clamp(controller.height / 2, 1f, 2f);
