@@ -43657,7 +43657,7 @@ MonoBehaviour:
   - name: PlayerWalk
     clip: {fileID: 8300000, guid: d848f6efc7d8df1469775a21c5a7846a, type: 3}
     volume: 0.431
-    pitch: 1.07
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: PlayerRun
@@ -43674,7 +43674,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FlowerCollected
     clip: {fileID: 8300000, guid: f1721d43c9ad43847abd2257ffcd4f02, type: 3}
-    volume: 0.181
+    volume: 0.186
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -43689,6 +43689,48 @@ MonoBehaviour:
     volume: 0.181
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: a7913704993aebc47a7f59bc20425ac7, type: 3}
+    volume: 0.318
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerThrow
+    clip: {fileID: 8300000, guid: e8b1e67d7a01edb428e266aacd62318e, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerLand
+    clip: {fileID: 8300000, guid: 0903c3f7a34431c4a8ef260bbba07383, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuClick
+    clip: {fileID: 8300000, guid: a2bee69eaa486d6408c25ce6df7323cb, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuHover
+    clip: {fileID: 8300000, guid: 53b1aaf1636f63c4583f21ac3b9bcda5, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuVolumeUp
+    clip: {fileID: 8300000, guid: 0863afa32bfdd06429fa9dcaf62fa072, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuVolumeDown
+    clip: {fileID: 8300000, guid: 758de27d4bea58e4ca2c89f8016ab43e, type: 3}
+    volume: 0.519
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1611582353
 Transform:
