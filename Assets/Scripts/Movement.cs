@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        this.transform.position = pauseManager.instance.loadGame();
+        
 
     }
 
