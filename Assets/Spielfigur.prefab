@@ -317,7 +317,19 @@ MonoBehaviour:
     m_ActionId: 4087acb0-0cbd-41ec-98b2-ad7f23ef9827
     m_ActionName: Gameplay/Throw[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 22d12c83-1692-4e69-8f1d-a1f0b88fdb8d
     m_ActionName: Gameplay/Pause[/Keyboard/escape]
   - m_PersistentCalls:

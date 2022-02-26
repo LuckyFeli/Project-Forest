@@ -4,22 +4,30 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public Dropdown resolutionDropdown;
-    public Dropdown qualityDropdown;
+    public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown qualityDropdown;
     
     public Slider volumeSlider;
     private float currentVolume;
+    private int currentQuality;
+    private int currentScreenMode;
+    private int currentScreenResolution;
+    private int currentrefreshIndex;
     private Resolution[] resolutions;
     private int[] rates;
     private FullScreenMode[] modes;
     // Start is called before the first frame update
     void Start()
     {
-        modes = new FullScreenMode[] {FullScreenMode.ExclusiveFullScreen,FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow };
+        Debug.Log("Test");
+        
+        modes = new FullScreenMode[] {FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow, FullScreenMode.ExclusiveFullScreen };
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         rates = new int[5]{ 30, 60, 90, 120, 144 };
@@ -44,28 +52,49 @@ public class Settings : MonoBehaviour
         audioMixer.SetFloat("Volume", volume);
         currentVolume = volume;
     }
-
-    public void SetScreenMode(int ScreenMode)
+    public float GetVolume()
     {
-        Screen.fullScreenMode = modes[ScreenMode];
+        return currentVolume;
     }
 
+    public void SetScreenMode(int ScreenMode)
+    {if (modes != null)
+        {
+            Screen.fullScreenMode = modes[ScreenMode];
+            currentScreenMode = ScreenMode;
+        }
+    }
+    public int GetScreenMode()
+    {
+        return currentScreenMode;
+    }
     
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        currentQuality = qualityIndex;
+    }
+    public int GetQuality()
+    {
+        return currentQuality;
     }
     public void SetResolution (int resolutionIndex)
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+        if (resolutions != null)
+        {
+            Debug.Log(resolutions[resolutionIndex]);
+            Resolution resolution = resolutions[resolutionIndex];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+            currentScreenResolution = resolutionIndex;
+        }
     }
-    public void SetRefreshRate(int refreshIndex)
+    public int GetResolution()
     {
-        int refreshRate = rates[refreshIndex];
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreen, refreshRate) ;
+        return currentScreenResolution;
     }
-
+   
+    
+   
     
 }
    

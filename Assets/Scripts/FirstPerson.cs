@@ -11,14 +11,14 @@ public class FirstPerson : MonoBehaviour
     private Vector2 camera_movement;
     PlayerControls controls;
     public Transform playerbody;
-    // Start is called before the first frame update
+    
     void Start()
     {
         controls = new PlayerControls();
         controls.Enable();
     }
 
-    // Update is called once per frame
+    //camera control with new input system
     public void cameraControl()
     {
         camera_movement = controls.Gameplay.Camera.ReadValue<Vector2>();
@@ -26,6 +26,12 @@ public class FirstPerson : MonoBehaviour
         nickWinkel = Mathf.Clamp(nickWinkel, -90f, 90f);
         transform.localRotation = Quaternion.AngleAxis(nickWinkel, Vector3.right);
         playerbody.Rotate(Vector3.up * camera_movement.x * Time.deltaTime * camera_movement_horizontal);
+
+    }
+    public void LoadState()
+    {
+        Debug.Log(pauseManager.instance.rotation);
+        playerbody.eulerAngles = pauseManager.instance.rotation;
 
     }
     private void Update()

@@ -7,7 +7,7 @@ public class movingPlattform : MonoBehaviour
 {
     public Vector3 newPosition = new Vector3(50, 0, 50);
     public GameObject plattform;
-    private CharacterController characterController;
+    
     public float time;
     private void OnCollisionEnter(Collision collision)
     {
@@ -22,13 +22,13 @@ public class movingPlattform : MonoBehaviour
     private IEnumerator noControl()
     {
         yield return new WaitForSeconds(time);
-        characterController.enabled=true;
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            characterController = other.GetComponent<CharacterController>();
+            
 
             other.gameObject.transform.parent = this.transform;
            
@@ -40,7 +40,7 @@ public class movingPlattform : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.transform.parent = null;
-            characterController = other.gameObject.GetComponent<CharacterController>();
+            
             
             
         }
