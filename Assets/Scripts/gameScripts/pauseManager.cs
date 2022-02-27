@@ -12,14 +12,15 @@ public class pauseManager : MonoBehaviour
     public Movement movement;
     public GameObject canvas;
     public FirstPerson camera;
+    public gameState gameState;
     public Settings settings;
     public inventar inventar;
     public Toggle[] toggles;
-    public gameState gameState;
+    
     public LoadSystem loadSystem;
     public bool[] toggleState = new bool[5];
     public bool[] abilityState = new bool[5];
-    public bool[] keyObjectState = new bool[5];
+    public bool[] keyObjectState = new bool[4];
     private void Awake()
     {
         if (instance != null)
@@ -27,14 +28,24 @@ public class pauseManager : MonoBehaviour
             instance.movement = movement;
             instance.canvas = canvas;
             instance.settings = instance.gameObject.GetComponent<Settings>();
+            instance.gameState = gameState;
             instance.movement = movement;
             instance.canvas = canvas;
             instance.inventar = inventar;
+            
             instance.settings.resolutionDropdown = settings.resolutionDropdown;
             instance.settings.qualityDropdown = settings.qualityDropdown;
             instance.settings.volumeSlider = settings.volumeSlider;
-            instance.gameState.Abilities[0] = gameState.Abilities[0];
-            instance.gameState.Abilities[1] = gameState.Abilities[1];
+            //for(int i = 0; i<abilityState.Length; i++)
+            //{
+                
+            //    instance.abilityState[i] = abilityState[i];
+            //}
+            //for(int i = 0; i<keyObjectState.Length; i++)
+            //{
+            //    Debug.Log(keyObjectState[i]);
+            //    instance.keyObjectState[i] = keyObjectState[i];
+            //}
             instance.camera = camera;
             instance.settings.enabled = true;
             instance.loadSystem = loadSystem;
@@ -58,17 +69,18 @@ public class pauseManager : MonoBehaviour
         SceneManager.LoadScene("Terrain");
         instance.position = new Vector3(76, 2, 47);
         instance.rotation = new Vector3(0, -25, 0);
-        for (int i = 0; i < toggleState.Length; i++)
+        for (int i = 0; i < instance.toggleState.Length; i++)
         {
-            toggleState[i] = false;
+            instance.toggleState[i] = false;
         }
         for(int i = 0; i < abilityState.Length; i++)
         {
-            abilityState[i] = false;
+            instance.abilityState[i] = false;
         }
         for(int i = 0; i<keyObjectState.Length; i++)
         {
-            keyObjectState[i] = true;
+            instance.keyObjectState[i] = true;
+            Debug.Log(instance.keyObjectState[i]);
         }
         
         
@@ -82,33 +94,37 @@ public class pauseManager : MonoBehaviour
         
         if (data.position != null)
         {
+            
             position.x = data.position[0];
             position.y = data.position[1];
             position.z = data.position[2];
+           
             
         }
         if(data.rotation != null)
         {
+            Debug.Log("camera");
             rotation.x = data.rotation[0];
             rotation.y = data.rotation[1];
             rotation.z = data.rotation[2];
+            Debug.Log(rotation); 
         }
 
         //Im folgenden werden die wichtigen daten, welche für das inventar system gespeichert wurden wieder abgerufen und die aufgehobenen Objekte dementsprechend auch in der Welt Deaktiviert
-        if (data.inventory != null && data.inventory.Length>4)
-        {
+       
             
             for(int i = 0; i<data.inventory.Length; i++)
             {
-                toggleState[i] = data.inventory[i];
+                instance.toggleState[i] = data.inventory[i];
             }
             for(int i = 0; i<data.inventory.Length; i++)
             {
-                abilityState[i] = !data.inventory[i];
+                instance.abilityState[i] = !data.inventory[i];
             }
             for(int i = 0; i<data.key_Objects.Length; i++)
             {
-                keyObjectState[i] = data.key_Objects[i];
+                Debug.Log(data.key_Objects[i]);
+                instance.keyObjectState[i] = data.key_Objects[i];
             }
             
 
@@ -120,7 +136,7 @@ public class pauseManager : MonoBehaviour
 
             //}
             
-        }
+        
         
     }
 }

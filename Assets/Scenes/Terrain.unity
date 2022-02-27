@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.22386155, g: 0.11765145, b: 0.26278225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52160,6 +52160,7 @@ GameObject:
   - component: {fileID: 1591105789}
   - component: {fileID: 1591105788}
   - component: {fileID: 1591105790}
+  - component: {fileID: 1591105791}
   m_Layer: 0
   m_Name: Loader
   m_TagString: Untagged
@@ -52188,8 +52189,17 @@ MonoBehaviour:
   - {fileID: 1393463020}
   - {fileID: 606914376}
   - {fileID: 1935743251}
-  objects: []
-  abilitys: []
+  objects:
+  - {fileID: 1166733073}
+  - {fileID: 2146240455}
+  - {fileID: 898935576}
+  - {fileID: 38675157}
+  abilitys:
+  - {fileID: 2094693594}
+  - {fileID: 919132147658777665}
+  - {fileID: 1203259035}
+  - {fileID: 1161649312}
+  - {fileID: 1347526866}
 --- !u!4 &1591105789
 Transform:
   m_ObjectHideFlags: 0
@@ -52220,6 +52230,31 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 1949433643}
   qualityDropdown: {fileID: 128658650}
   volumeSlider: {fileID: 3043652740554811845}
+--- !u!114 &1591105791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591105787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60103e7b518504e49ac2f1ad338330ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Abilities:
+  - {fileID: 488834676}
+  - {fileID: 488834676}
+  - {fileID: 1715256471}
+  - {fileID: 1129859485}
+  - {fileID: 1610314170}
+  Factions: []
+  Key_Objects:
+  - {fileID: 1166733073}
+  - {fileID: 2146240455}
+  - {fileID: 898935576}
+  - {fileID: 38675157}
+  Objects: 
 --- !u!1 &1592474789
 GameObject:
   m_ObjectHideFlags: 0
@@ -104559,6 +104594,7 @@ MonoBehaviour:
   movement: {fileID: 3714675268815104407}
   canvas: {fileID: 3043652740752915499}
   camera: {fileID: 298919265742509759}
+  gameState: {fileID: 1591105791}
   settings: {fileID: 4830199192951890475}
   inventar: {fileID: 1874312401}
   toggles:
@@ -104567,11 +104603,10 @@ MonoBehaviour:
   - {fileID: 1393463020}
   - {fileID: 606914376}
   - {fileID: 1935743251}
-  gameState: {fileID: 4830199192951890476}
   loadSystem: {fileID: 1591105788}
   toggleState: 0000000000
   abilityState: 0000000000
-  keyObjectState: 0000000000
+  keyObjectState: 00000000
 --- !u!114 &4830199192951890475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104601,8 +104636,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Abilities:
-  - {fileID: 7964115543765163801}
-  - {fileID: 8005982703445337587}
+  - {fileID: 488834676}
+  - {fileID: 488834676}
+  - {fileID: 1715256471}
+  - {fileID: 1129859485}
+  - {fileID: 1610314170}
+  Factions: []
+  Key_Objects:
+  - {fileID: 1166733073}
+  - {fileID: 2146240455}
+  - {fileID: 898935576}
+  Objects: 
 --- !u!1 &4830199192951890643
 GameObject:
   m_ObjectHideFlags: 0

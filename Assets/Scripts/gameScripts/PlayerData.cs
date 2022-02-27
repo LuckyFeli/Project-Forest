@@ -13,7 +13,7 @@ public class PlayerData
     public bool[] inventory;
     public bool[] key_Objects;
     public float[] rotation;
-    public PlayerData(Movement player, Settings settings, inventar inventoryInfo, FirstPerson camera)
+    public PlayerData(Movement player, Settings settings, inventar inventoryInfo, FirstPerson camera,gameState stand)
     {
         position = new float[3];
         rotation = new float[3];
@@ -24,14 +24,18 @@ public class PlayerData
         screenMode = settings.GetScreenMode();
         qualityIndex = settings.GetQuality();
         resolutionIndex = settings.GetResolution();
-        rotation[0] = camera.playerbody.transform.localEulerAngles.x;
-        rotation[1] = camera.playerbody.transform.localEulerAngles.y;
-        rotation[2] = camera.playerbody.transform.localEulerAngles.z;
-        //    inventory = new bool[5];
-        //    inventory = inventoryInfo.GetInventory();
-        //    key_Objects = new bool[5];
-        //    key_Objects = gameState.getKeyObject();
-        //
+        rotation[0] = camera.playerbody.localEulerAngles.x;
+        rotation[1] = camera.playerbody.localEulerAngles.y;
+        rotation[2] = camera.playerbody.localEulerAngles.z;
+        Debug.Log("rot " + rotation[0] + " " + rotation[1] + " "+rotation[2]);
+           inventory = new bool[5];
+            inventory = inventoryInfo.GetInventory();
+        
+            key_Objects = new bool[4];
+            key_Objects = stand.getKeyObject();
+        
+       
+        
         }
     
 

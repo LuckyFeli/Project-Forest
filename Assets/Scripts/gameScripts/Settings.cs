@@ -26,7 +26,7 @@ public class Settings : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("Test");
+        
         
         modes = new FullScreenMode[] {FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow, FullScreenMode.ExclusiveFullScreen };
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
@@ -83,7 +83,7 @@ public class Settings : MonoBehaviour
     {
         if (resolutions != null)
         {
-            Debug.Log(resolutions[resolutionIndex]);
+            
             Resolution resolution = resolutions[resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
             currentScreenResolution = resolutionIndex;

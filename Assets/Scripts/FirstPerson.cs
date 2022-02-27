@@ -31,7 +31,7 @@ public class FirstPerson : MonoBehaviour
     public void LoadState()
     {
         Debug.Log(pauseManager.instance.rotation);
-        playerbody.eulerAngles = pauseManager.instance.rotation;
+        playerbody.localEulerAngles = pauseManager.instance.rotation;
 
     }
     private void Update()

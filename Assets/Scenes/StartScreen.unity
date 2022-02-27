@@ -171,6 +171,9 @@ MonoBehaviour:
   Abilities:
   - {fileID: 0}
   - {fileID: 0}
+  Factions: []
+  Key_Objects: []
+  Objects: 
 --- !u!114 &172966023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +207,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   canvas: {fileID: 0}
   camera: {fileID: 0}
+  gameState: {fileID: 172966022}
   settings: {fileID: 172966023}
   inventar: {fileID: 0}
   toggles:
@@ -212,11 +216,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameState: {fileID: 172966022}
   loadSystem: {fileID: 0}
   toggleState: 0000000000
   abilityState: 0000000000
-  keyObjectState: 0000000000
+  keyObjectState: 00000000
 --- !u!114 &172966025
 MonoBehaviour:
   m_ObjectHideFlags: 0
