@@ -494,8 +494,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 86153212}
         m_TargetAssemblyTypeName: DialogUI, Assembly-CSharp
-        m_MethodName: writeText
-        m_Mode: 3
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2786,8 +2786,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 86153212}
         m_TargetAssemblyTypeName: DialogUI, Assembly-CSharp
-        m_MethodName: writeText
-        m_Mode: 3
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3442,6 +3442,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40b74e4e4906a1b40bdfceee9b62a917, type: 2}
   - {fileID: 11400000, guid: 2cdb1c174aafb2944938f2012540b71b, type: 2}
   - {fileID: 11400000, guid: e89b4adc27d66ee4faea531eb8e373b7, type: 2}
+  - {fileID: 11400000, guid: 5be2b2c6448f221429cd34f04b82e4b5, type: 2}
   - {fileID: 11400000, guid: 9bb75cbbb19b5074da3cb66bac4184ff, type: 2}
 --- !u!114 &86153213
 MonoBehaviour:
@@ -27080,7 +27081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -213.59, y: 47.65}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1400, y: 250}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &851057720
@@ -43190,8 +43191,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 86153212}
         m_TargetAssemblyTypeName: DialogUI, Assembly-CSharp
-        m_MethodName: writeText
-        m_Mode: 3
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -65052,8 +65053,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

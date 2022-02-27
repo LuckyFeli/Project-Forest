@@ -7,7 +7,10 @@ public class DialogUI : MonoBehaviour
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private DialogObject[] allDialog;
-
+    private void Start()
+    {
+        writeText(5);
+    }
     private Typewritereffect typewritereffect;
     public void writeText(int i)
     {
