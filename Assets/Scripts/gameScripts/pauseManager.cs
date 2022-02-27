@@ -95,10 +95,10 @@ public class pauseManager : MonoBehaviour
         if (data.position != null)
         {
             
-            position.x = data.position[0];
-            position.y = data.position[1];
-            position.z = data.position[2];
-           
+            instance.position.x = data.position[0];
+            instance.position.y = data.position[1];
+            instance.position.z = data.position[2];
+            Debug.LogError(position);
             
         }
         if(data.rotation != null)

@@ -49,7 +49,10 @@ public class Movement : MonoBehaviour
     }
     public void LoadState()
     {
-        transform.position = pauseManager.instance.position;
+        controller.enabled = false;
+        transform.localPosition = pauseManager.instance.position;
+        controller.enabled = true;
+        Debug.LogError(transform.position);
     }
     //Activates the control scheme
     private void OnEnable()
@@ -126,6 +129,7 @@ public class Movement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        
     }
 
     //When exiting the pause menu, give players the control back 
