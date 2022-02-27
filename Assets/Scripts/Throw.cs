@@ -11,9 +11,11 @@ public class Throw : MonoBehaviour
     private Collider SCopyCol;
     private bool cooldown = true;
     public float cd = 1f;
+    public AudioManager audioManager;
     // Start is called before the first frame update
     public void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         inventory = GameObject.Find("Cursors").GetComponent<inventar>();
 
     }
@@ -26,6 +28,7 @@ public class Throw : MonoBehaviour
             {
                 if (context.performed && cooldown)
                 {
+                    
                     Vector3 prePos = Selection[inventory.changeAbility].transform.position;
                     SCopy = Instantiate(Selection[inventory.changeAbility]);
                     SCopy.transform.position = prePos;
@@ -39,6 +42,7 @@ public class Throw : MonoBehaviour
                     Debug.Log("Throw!" + prePos);
                     cooldown = false;
                     StartCoroutine(Cooldown());
+                    audioManager.Play("PlayerThrow");
                 }
             }
            

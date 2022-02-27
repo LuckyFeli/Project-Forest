@@ -25,6 +25,7 @@ public class Settings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Debug.Log("Test");
         
         modes = new FullScreenMode[] {FullScreenMode.MaximizedWindow,FullScreenMode.Windowed,FullScreenMode.FullScreenWindow, FullScreenMode.ExclusiveFullScreen };

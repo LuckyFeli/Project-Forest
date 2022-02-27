@@ -27,6 +27,7 @@ public class MakeItButton : MonoBehaviour
             outline.enabled = true;
             if(Input.GetKeyDown(KeyCode.E))
             {
+                FindObjectOfType<AudioManager>().Play("FlowerCollected");
                 unityEvent.Invoke();
             }
         }

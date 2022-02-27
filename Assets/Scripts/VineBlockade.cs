@@ -34,6 +34,7 @@ public class VineBlockade : MonoBehaviour
                 inventory.ability5 = false;
                 inventory.throwableObjects[4].SetActive(false);
                 toggle.GetComponent<Toggle>().isOn = false;
+                FindObjectOfType<AudioManager>().Play("VinesDisappear");
                 
             }
         }

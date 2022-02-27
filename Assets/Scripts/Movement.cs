@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
 {   //InputSystem
     private PlayerControls controls;
     public CharacterController controller;
-    
+    public AudioManager audioManager;
     private Vector2 movement;
     private Vector3 move;
 
@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
         Cursor.lockState = CursorLockMode.Locked;
         groundCheck = GameObject.Find("GroundCheck").GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
@@ -61,9 +61,13 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        isFake = Physics.CheckSphere(morganaCheck.position, morganaDistance, fataMorgana);
-
         
+        isFake = Physics.CheckSphere(morganaCheck.position, morganaDistance, fataMorgana);
+        if (movement == new Vector2(0, 0))
+            {
+            audioManager.sounds[0].source.Stop();
+        }
+
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -1f;
@@ -71,14 +75,28 @@ public class Movement : MonoBehaviour
         }
 
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
-        
+        if (movement != new Vector2(0, 0))
+        {
+            if (!audioManager.sounds[0].source.isPlaying)
+            {
+                if (!audioManager.sounds[1].source.isPlaying || !audioManager.sounds[5].source.isPlaying)
+                    audioManager.Play("PlayerWalk");
+            }
+        }
+
+        audioManager.sounds[5].source.Stop();
         if (controls.Gameplay.sprinting.IsPressed())
         {
+            if (!audioManager.sounds[1].source.isPlaying && movement != Vector2.zero)
+            {
+                audioManager.Play("PlayerRun");
+            }
             move = transform.right * movement.x + transform.forward * movement.y + transform.right * movement.x * sprint + transform.forward * movement.y * sprint;
             
         }
         else
-        { 
+        {
+            audioManager.sounds[1].source.Stop();
             move = transform.right * movement.x + transform.forward * movement.y;
             
 
@@ -87,7 +105,12 @@ public class Movement : MonoBehaviour
         {
             controller.height = Mathf.Clamp(controller.height / 2, 1f, 2f);
             move = move / 2;
+            if (!audioManager.sounds[5].source.isPlaying)
+            {
+                audioManager.Play("PlayerCrouch");
+            }
         }
+        
         else
         {
             controller.height = 2f;
@@ -134,5 +157,6 @@ public class Movement : MonoBehaviour
     {
         controller.transform.position = savePosition;
     }
+    
 }
 

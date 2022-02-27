@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    
+    public AudioMixer mixer;
     public Sound[] sounds;
     void Awake()
     {
-        foreach(Sound s in sounds)
+        AudioMixerGroup[] audioMixGroup = mixer.FindMatchingGroups("Master");
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -17,7 +18,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            
+            s.source.outputAudioMixerGroup = audioMixGroup[0];
         }
     }
 
