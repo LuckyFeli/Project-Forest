@@ -13,5 +13,6 @@ public class makeInvisible : MonoBehaviour
             plattform.SetActive(false);
             this.gameObject.layer = 0;
         }
+        
     }
 }

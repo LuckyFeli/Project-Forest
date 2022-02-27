@@ -11,7 +11,7 @@ public class inventar : MonoBehaviour
     private bool ability2 = false;
     private bool ability3 = false;
     private bool ability4 = false;
-    private bool ability5 = false;
+    public bool ability5 = false;
 
     public bool toggleAbility;
     public int changeAbility;
@@ -87,8 +87,13 @@ public class inventar : MonoBehaviour
         {
             if (ability3 == true)
             {
+                Debug.Log("test");
                 resetInventory();
                 toggles[2].gameObject.SetActive(true);
+
+                resetThrowableObject();
+                throwableObjects[2].gameObject.SetActive (true);
+
                 toggleAbility = true;
                 changeAbility = 2;
             }
@@ -99,6 +104,10 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[3].gameObject.SetActive(true);
+
+                resetThrowableObject();
+                throwableObjects[3].gameObject.SetActive(true);
+
                 toggleAbility = true;
                 changeAbility = 3;
             }
@@ -109,6 +118,10 @@ public class inventar : MonoBehaviour
             {
                 resetInventory();
                 toggles[4].gameObject.SetActive(true);
+
+                resetThrowableObject();
+                throwableObjects[4].gameObject.SetActive(true);
+
                 toggleAbility = true;
                 changeAbility = 4;
             }

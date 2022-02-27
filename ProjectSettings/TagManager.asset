@@ -10,6 +10,7 @@ TagManager:
   - Morph
   - Mover
   - Teleporter
+  - Blocker
   layers:
   - Default
   - TransparentFX

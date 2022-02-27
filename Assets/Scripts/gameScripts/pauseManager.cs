@@ -56,8 +56,8 @@ public class pauseManager : MonoBehaviour
     public void newGame()
     {
         SceneManager.LoadScene("Terrain");
-        instance.position = new Vector3(30, 10, 65);
-        instance.rotation = new Vector3(0, 0, 0);
+        instance.position = new Vector3(76, 2, 47);
+        instance.rotation = new Vector3(0, -25, 0);
         for (int i = 0; i < toggleState.Length; i++)
         {
             toggleState[i] = false;

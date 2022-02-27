@@ -22,22 +22,26 @@ public class Throw : MonoBehaviour
     {
         if (inventory.toggleAbility == true)
         {
-            if (context.performed && cooldown)
+            if (inventory.changeAbility != 4)
             {
-                Vector3 prePos = Selection[inventory.changeAbility].transform.position;
-                SCopy = Instantiate(Selection[inventory.changeAbility]);
-                SCopy.transform.position = prePos;
-                SCopy.AddComponent<Rigidbody>();
-                SCopyCol = SCopy.GetComponent<Collider>();
-                SCopyCol.enabled = true;
-                SCopyRB = SCopy.GetComponent<Rigidbody>();
-                SCopyRB.mass = 0.25f;
-                SCopyRB.drag = 3f;
-                SCopyRB.AddForce(Camera.main.transform.forward * 250);
-                Debug.Log("Throw!" + prePos);
-                cooldown = false;
-                StartCoroutine(Cooldown());
+                if (context.performed && cooldown)
+                {
+                    Vector3 prePos = Selection[inventory.changeAbility].transform.position;
+                    SCopy = Instantiate(Selection[inventory.changeAbility]);
+                    SCopy.transform.position = prePos;
+                    SCopy.AddComponent<Rigidbody>();
+                    SCopyCol = SCopy.GetComponent<Collider>();
+                    SCopyCol.enabled = true;
+                    SCopyRB = SCopy.GetComponent<Rigidbody>();
+                    SCopyRB.mass = 0.25f;
+                    SCopyRB.drag = 3f;
+                    SCopyRB.AddForce(Camera.main.transform.forward * 250);
+                    Debug.Log("Throw!" + prePos);
+                    cooldown = false;
+                    StartCoroutine(Cooldown());
+                }
             }
+           
         }
         
     }
