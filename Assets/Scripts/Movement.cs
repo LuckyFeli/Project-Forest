@@ -62,20 +62,27 @@ public class Movement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isFake = Physics.CheckSphere(morganaCheck.position, morganaDistance, fataMorgana);
+
+        
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -1f;
+
         }
 
         movement = controls.Gameplay.Movement.ReadValue<Vector2>();
-
-
+        
         if (controls.Gameplay.sprinting.IsPressed())
         {
             move = transform.right * movement.x + transform.forward * movement.y + transform.right * movement.x * sprint + transform.forward * movement.y * sprint;
+            
         }
         else
-        { move = transform.right * movement.x + transform.forward * movement.y; }
+        { 
+            move = transform.right * movement.x + transform.forward * movement.y;
+            
+
+        }
         if (controls.Gameplay.crouching.IsPressed())
         {
             controller.height = Mathf.Clamp(controller.height / 2, 1f, 2f);
@@ -91,7 +98,7 @@ public class Movement : MonoBehaviour
         if (isGrounded && controls.Gameplay.jumping.IsPressed())
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-
+            FindObjectOfType<AudioManager>().Play("PlayerJump");
         }
 
         velocity.y += gravity * Time.deltaTime;
