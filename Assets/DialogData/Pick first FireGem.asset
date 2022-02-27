@@ -10,7 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f674783d29acce41ad2b2f3d111eefe, type: 3}
-  m_Name: blume4
+  m_Name: Pick first FireGem
   m_EditorClassIdentifier: 
   dialogue:
-  - "Blume4 \nmacht das und das"
+  - A fire gem!
+  - It is hot and can unleash fire
+  - 'Maybe it will come in handy when i need
+
+    to burn down plants that
+
+    are
+    in my way'
+  - 'Select the gem and press E to use
+
+    it on an obstacle'

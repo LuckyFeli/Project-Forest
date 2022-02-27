@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f674783d29acce41ad2b2f3d111eefe, type: 3}
-  m_Name: blume1
+  m_Name: blume4 aufheben
   m_EditorClassIdentifier: 
   dialogue:
-  - 'Blume1
+  - An Uncloakfloret
+  - 'These petals can be used to reveal
 
-    mach das udn das'
+    invisible objects.
+
+    If I can see
+    it I can find a way around it'
